@@ -43,30 +43,35 @@ TEMPLATE = """# advent_of_code_2020
 {}"""
 
 
+def split_entry(entry):
+    entry = os.path.basename(entry)
+    if '.' not in entry:
+        name, ext = entry.split('_')
+    else:
+        name, ext = os.path.splitext(entry)
+        ext = ext[1:]
+    day = next(
+        int(name[i:]) for i in range(len(name)) if name[i:].isdigit()
+    )
+    return (day, ext)
+
+
 def files_for_day(day):
     fdr = next(x[1] for x in folders if x[0] > i)
     if not os.path.isdir(fdr):
-        return
+        return []
 
+    files = []
     for fn in os.listdir(fdr):
-        try:
-            name, ext = os.path.splitext(fn)
-            day = next(
-                int(name[i:]) for i in range(len(name)) if name[i:].isdigit()
-            )
-        except StopIteration:
-            pass
-        # print("Coundn't parse: %s" % fn)
-        except ValueError:
-            pass
-        else:
-            if ext[1:] in extensions and day == i:
-                yield os.path.join(fdr, fn)
+        day, ext = split_entry(fn)
+        if ext in extensions and day == i:
+            files.append(os.path.join(fdr, fn))
+    return sorted(files)
 
 
 def pretty_extension_name(path):
-    _, ext = os.path.splitext(path)
-    return extensions[ext[1:]]
+    _, ext = split_entry(path)
+    return extensions[ext]
 
 
 if __name__ == "__main__":
