@@ -63,7 +63,10 @@ def files_for_day(day):
 
     files = []
     for fn in os.listdir(fdr):
-        day, ext = split_entry(fn)
+        try:
+            day, ext = split_entry(fn)
+        except:
+            continue
         if ext in extensions and day == i:
             files.append(os.path.join(fdr, fn))
     return sorted(files)
