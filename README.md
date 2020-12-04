@@ -5,6 +5,7 @@
 ## Solutions
 
 * Day 1:  :santa:
+    * [Haskell](Day1-9/1.hs)
     * [Python](Day1-9/1.py)
     * [Rust](Day1-9/day1_rs)
 * Day 2:  :star2:
@@ -13,4 +14,6 @@
 * Day 3:  :snowflake:
     * [Python](Day1-9/3.py)
     * [Rust](Day1-9/day3_rs)
+* Day 4:  :snowman:
+    * [Python](Day1-9/4.py)
 
