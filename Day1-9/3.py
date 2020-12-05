@@ -3,7 +3,7 @@ def toboggan(grid, slope):
     dx, dy = slope
     trees = 0
     while y < len(grid):
-        if grid[y][x % len(grid[0])] == '#':
+        if grid[y][x % len(grid[0])] == "#":
             trees += 1
         y += dy
         x += dx
