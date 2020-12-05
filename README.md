@@ -16,4 +16,8 @@
     * [Rust](Day1-9/day3_rs)
 * Day 4:  :snowman:
     * [Python](Day1-9/4.py)
+    * [Rust](Day1-9/day4_rs)
+* Day 5:  :sparkles:
+    * [Python](Day1-9/5.py)
+    * [Rust](Day1-9/day5_rs)
 
