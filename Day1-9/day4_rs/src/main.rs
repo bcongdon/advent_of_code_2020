@@ -39,7 +39,7 @@ impl Field {
             static ref HEX: Regex = Regex::new(r"^#[0-9a-f]{6}$").unwrap();
             static ref ECL: Regex = Regex::new(r"^(amb|blu|brn|gry|grn|hzl|oth)$").unwrap();
         }
-        let res = match self {
+        match self {
             Field::Byr => FOUR_DIGITS.is_match(val) && num_range(val, 1920, 2002),
             Field::Iyr => FOUR_DIGITS.is_match(val) && num_range(val, 2010, 2020),
             Field::Eyr => FOUR_DIGITS.is_match(val) && num_range(val, 2020, 2030),
@@ -50,8 +50,7 @@ impl Field {
             Field::Hcl => HEX.is_match(val),
             Field::Ecl => ECL.is_match(val),
             Field::Pid => NINE_DIGITS.is_match(val),
-        };
-        res
+        }
     }
 
     fn find_val(self, passport_field: &str) -> Option<&str> {
