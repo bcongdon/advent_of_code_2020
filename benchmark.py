@@ -11,7 +11,7 @@ folders = [(10, "Day1-9"), (20, "Day10-19"), (26, "Day20-25")]
 #   extension: (compile_cmd, run_cmd, name)
 languages = {
     "py": (None, "python3 {}", "Python"),
-    # 'hs': 'Haskell',
+    "hs": ("ghc {} -o {}", "./{}", "Haskell"),
     "cpp": ("g++ -Ofast -march=native {} -o {} -lboost_regex", "./{} ", "C++"),
     "c": ("gcc -Ofast -pthread -march=native  -lpthread {} -o {}", "./{}", "C"),
     # 'rb': 'Ruby',
