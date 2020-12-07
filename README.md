@@ -26,4 +26,5 @@
     * [Rust](Day1-9/day6_rs)
 * Day 7:  :christmas_tree:
     * [Python](Day1-9/7.py)
+    * [Rust](Day1-9/day7_rs)
 
