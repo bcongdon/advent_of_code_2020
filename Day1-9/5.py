@@ -2,9 +2,9 @@ def determine_range(line, hi):
     lo = 0
     for c in line:
         mid = (lo + hi) // 2
-        if c in ('F', 'L'):
+        if c in ("F", "L"):
             hi = mid
-        elif c in ('B', 'R'):
+        elif c in ("B", "R"):
             lo = mid
         else:
             raise Exception(f"unknown: {c}")

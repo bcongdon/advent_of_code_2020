@@ -45,14 +45,12 @@ TEMPLATE = """# advent_of_code_2020
 
 def split_entry(entry):
     entry = os.path.basename(entry)
-    if '.' not in entry:
-        name, ext = entry.split('_')
+    if "." not in entry:
+        name, ext = entry.split("_")
     else:
         name, ext = os.path.splitext(entry)
         ext = ext[1:]
-    day = next(
-        int(name[i:]) for i in range(len(name)) if name[i:].isdigit()
-    )
+    day = next(int(name[i:]) for i in range(len(name)) if name[i:].isdigit())
     return (day, ext)
 
 
@@ -85,12 +83,12 @@ if __name__ == "__main__":
         header = "* Day {}:  {}\n".format(i, next(symbols))
         solution_files = files_for_day(i)
 
-        tmp = ''
+        tmp = ""
         for s in solution_files:
             sol_type = pretty_extension_name(s)
             tmp += soln_temp.format(sol_type, s)
 
-        if tmp != '':
+        if tmp != "":
             out += header
             out += tmp
     print(TEMPLATE.format(out))

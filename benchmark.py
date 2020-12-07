@@ -87,14 +87,12 @@ def benchmark_day(day):
             comp = "cp {} {}"
         bin_file = "bin/{}-{}".format(day, ext) if comp else fn
         run = run.format(fn, bin_file)
-        run_cmds.append(
-            '-n "Day {0} - {1}" "{2}"'.format(entry_day, lang, run))
+        run_cmds.append('-n "Day {0} - {1}" "{2}"'.format(entry_day, lang, run))
 
         compile_command = comp.format(fn, bin_file)
         compile_result = os.system(compile_command)
         if compile_result != 0:
-            raise Exception(
-                "Compile failed for command {}".format(compile_command))
+            raise Exception("Compile failed for command {}".format(compile_command))
 
     run_cmds.sort()
     if run_cmds:
