@@ -24,4 +24,6 @@
     * [Haskell](Day1-9/6.hs)
     * [Python](Day1-9/6.py)
     * [Rust](Day1-9/day6_rs)
+* Day 7:  :christmas_tree:
+    * [Python](Day1-9/7.py)
 
