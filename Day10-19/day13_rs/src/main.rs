@@ -8,7 +8,7 @@ fn main() {
         .unwrap()
         .split(',')
         .enumerate()
-        .filter_map(|c| c.1.parse::<u64>().ok().map(|bus| (bus, c.0)))
+        .filter_map(|(idx, bus)| bus.parse::<u64>().ok().map(|b| (b, idx)))
         .collect::<Vec<_>>();
 
     let part1 = busses
