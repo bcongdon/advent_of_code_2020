@@ -52,4 +52,5 @@
     * [Rust](Day10-19/day15_rs)
 * Day 16:  :fire:
     * [Python](Day10-19/16.py)
+    * [Rust](Day10-19/day16_rs)
 
