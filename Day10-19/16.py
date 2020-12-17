@@ -31,7 +31,8 @@ def field_sets(defs, ticket):
 if __name__ == "__main__":
     with open("16.txt") as f:
         defs_raw, raw_ticket, nearby = f.read().split("\n\n")
-    nearby = [[int(i) for i in l.split(",")] for l in nearby.strip().split("\n")[1:]]
+    nearby = [[int(i) for i in l.split(",")]
+              for l in nearby.strip().split("\n")[1:]]
 
     defs = []
     for f in defs_raw.strip().split("\n"):
@@ -58,5 +59,6 @@ if __name__ == "__main__":
         field_map[val] = idx
 
     ticket = [int(i) for i in raw_ticket.split("\n")[1].split(",")]
-    part2 = reduce((lambda x, y: x * y), [ticket[field_map[i]] for i in range(6)])
+    part2 = reduce((lambda x, y: x * y),
+                   [ticket[field_map[i]] for i in range(6)])
     print(f"Part 2: {part2}")

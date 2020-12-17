@@ -53,4 +53,7 @@
 * Day 16:  :fire:
     * [Python](Day10-19/16.py)
     * [Rust](Day10-19/day16_rs)
+* Day 17:  :christmas_tree:
+    * [Python](Day10-19/17.py)
+    * [Rust](Day10-19/day17_rs)
 
