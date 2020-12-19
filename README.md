@@ -56,4 +56,9 @@
 * Day 17:  :christmas_tree:
     * [Python](Day10-19/17.py)
     * [Rust](Day10-19/day17_rs)
+* Day 18:  :gift:
+    * [Python](Day10-19/18.py)
+    * [Rust](Day10-19/day18_rs)
+* Day 19:  :bell:
+    * [Python](Day10-19/19.py)
 
