@@ -7,15 +7,15 @@ def run(instructions, swp_index=-1):
         ran.add(pc)
         cmd, offset = instructions[pc]
         if pc == swp_index:
-            if cmd == 'nop':
-                cmd = 'jmp'
-            elif cmd == 'jmp':
-                cmd = 'nop'
-        if cmd == 'nop':
+            if cmd == "nop":
+                cmd = "jmp"
+            elif cmd == "jmp":
+                cmd = "nop"
+        if cmd == "nop":
             pc += 1
-        elif cmd == 'jmp':
+        elif cmd == "jmp":
             pc += offset
-        elif cmd == 'acc':
+        elif cmd == "acc":
             acc += offset
             pc += 1
     return (acc, pc)

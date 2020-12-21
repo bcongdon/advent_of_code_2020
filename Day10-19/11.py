@@ -3,19 +3,28 @@ from itertools import product
 
 def iterate1(grid):
     n, m = len(grid), len(grid[0])
-    next_grid = [['' for _ in range(m)] for _ in range(n)]
+    next_grid = [["" for _ in range(m)] for _ in range(n)]
     changed = False
     for (x, y) in product(range(n), range(m)):
         neighbors = 0
-        for (nx, ny) in [(x - 1, y), (x - 1, y - 1), (x - 1, y + 1), (x + 1, y), (x + 1, y - 1), (x + 1, y + 1), (x, y - 1), (x, y + 1)]:
-            if (0 <= nx < n) and (0 <= ny < m) and grid[nx][ny] == '#':
+        for (nx, ny) in [
+            (x - 1, y),
+            (x - 1, y - 1),
+            (x - 1, y + 1),
+            (x + 1, y),
+            (x + 1, y - 1),
+            (x + 1, y + 1),
+            (x, y - 1),
+            (x, y + 1),
+        ]:
+            if (0 <= nx < n) and (0 <= ny < m) and grid[nx][ny] == "#":
                 neighbors += 1
         state = grid[x][y]
-        if state == 'L' and neighbors == 0:
-            state = '#'
+        if state == "L" and neighbors == 0:
+            state = "#"
             changed = True
-        elif state == '#' and neighbors >= 4:
-            state = 'L'
+        elif state == "#" and neighbors >= 4:
+            state = "L"
             changed = True
         next_grid[x][y] = state
     return next_grid, changed
@@ -23,7 +32,7 @@ def iterate1(grid):
 
 def iterate2(grid):
     n, m = len(grid), len(grid[0])
-    next_grid = [['' for _ in range(m)] for _ in range(n)]
+    next_grid = [["" for _ in range(m)] for _ in range(n)]
     changed = False
     for (x, y) in product(range(n), range(m)):
         neighbors = 0
@@ -31,17 +40,17 @@ def iterate2(grid):
             cx, cy = x, y
             while (dx, dy) != (0, 0) and (0 <= (cx + dx) < n) and (0 <= (cy + dy) < m):
                 cx, cy = cx + dx, cy + dy
-                if grid[cx][cy] == '#':
+                if grid[cx][cy] == "#":
                     neighbors += 1
                     break
-                elif grid[cx][cy] == 'L':
+                elif grid[cx][cy] == "L":
                     break
         state = grid[x][y]
-        if state == 'L' and neighbors == 0:
-            state = '#'
+        if state == "L" and neighbors == 0:
+            state = "#"
             changed = True
-        elif state == '#' and neighbors >= 5:
-            state = 'L'
+        elif state == "#" and neighbors >= 5:
+            state = "L"
             changed = True
         next_grid[x][y] = state
     return next_grid, changed

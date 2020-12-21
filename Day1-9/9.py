@@ -4,8 +4,7 @@ from itertools import product
 def first_invalid(nums):
     buffer = nums[:25]
     for n in nums[25:]:
-        if not any((x, y)
-                   for (x, y) in product(buffer, buffer) if x + y == n):
+        if not any((x, y) for (x, y) in product(buffer, buffer) if x + y == n):
             return n
         buffer = buffer[1:] + [n]
 

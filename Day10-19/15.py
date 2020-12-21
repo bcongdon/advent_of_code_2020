@@ -14,7 +14,7 @@ def nth_number(seed, nth):
 
 if __name__ == "__main__":
     with open("15.txt") as f:
-        nums = [int(i) for i in f.read().split(',')]
+        nums = [int(i) for i in f.read().split(",")]
 
     print(f"Part 1: {nth_number(nums, 2020)}")
     print(f"Part 2: {nth_number(nums, 30000000)}")

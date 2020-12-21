@@ -2,7 +2,7 @@ if __name__ == "__main__":
     with open("13.txt") as f:
         raw = f.readlines()
     ts = int(raw[0])
-    busses = [int(b) if b != 'x' else None for b in raw[1].split(',')]
+    busses = [int(b) if b != "x" else None for b in raw[1].split(",")]
 
     wait_times = sorted([(b - (ts % b), b) for b in busses if b])
     print(f"Part 1: {wait_times[0][0] * wait_times[0][1]}")

@@ -8,8 +8,10 @@ def simulate(active, n, part2=True):
         for x, y, z, w in active:
             neighbors = 0
             n_ranges = [
-                range(x - 1, x + 2), range(y - 1, y + 2), range(z - 1, z + 2),
-                (range(w - 1, w + 2) if part2 else [w])
+                range(x - 1, x + 2),
+                range(y - 1, y + 2),
+                range(z - 1, z + 2),
+                (range(w - 1, w + 2) if part2 else [w]),
             ]
             for nx, ny, nz, nw in product(*n_ranges):
                 if (nx, ny, nz, nw) == (x, y, z, w):
@@ -23,8 +25,10 @@ def simulate(active, n, part2=True):
         for x, y, z, w in to_visit:
             neighbors = 0
             n_ranges = [
-                range(x - 1, x + 2), range(y - 1, y + 2), range(z - 1, z + 2),
-                (range(w - 1, w + 2) if part2 else [w])
+                range(x - 1, x + 2),
+                range(y - 1, y + 2),
+                range(z - 1, z + 2),
+                (range(w - 1, w + 2) if part2 else [w]),
             ]
             for nx, ny, nz, nw in product(*n_ranges):
                 if (nx, ny, nz, nw) == (x, y, z, w):
@@ -44,7 +48,7 @@ if __name__ == "__main__":
     active = set()
     for y, line in enumerate(grid_strs):
         for x, c in enumerate(line):
-            if c == '#':
+            if c == "#":
                 active.add((x, y, 0, 0))
     print(f"Part 1: {simulate(active, 6, part2=False)}")
     print(f"Part 2: {simulate(active, 6, part2=True)}")
