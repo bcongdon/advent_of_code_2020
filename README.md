@@ -61,4 +61,6 @@
     * [Rust](Day10-19/day18_rs)
 * Day 19:  :bell:
     * [Python](Day10-19/19.py)
+* Day 20:  :tada:
+    * [Rust](Day20-25/day20_rs)
 
