@@ -1,7 +1,7 @@
 use itertools::Itertools;
 use std::collections::{HashMap, HashSet};
 
-fn part1(nums: &Vec<i32>) -> i32 {
+fn part1(nums: &[i32]) -> i32 {
     let lookup = nums.iter().map(|&x| 2020 - x).collect::<HashSet<_>>();
     nums.iter()
         .filter_map(|l| {
@@ -15,7 +15,7 @@ fn part1(nums: &Vec<i32>) -> i32 {
         .unwrap()
 }
 
-fn part2(nums: &Vec<i32>) -> i32 {
+fn part2(nums: &[i32]) -> i32 {
     let lookup = nums
         .iter()
         .cartesian_product(nums.iter())
@@ -34,7 +34,7 @@ fn main() {
     let input = include_str!("1.txt");
 
     let nums = input
-        .split_terminator("\n")
+        .split_terminator('\n')
         .map(|l| l.parse::<i32>().expect("Line should be a number"))
         .collect::<Vec<_>>();
 

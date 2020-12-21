@@ -35,10 +35,10 @@ impl Tile {
         assert_eq!(self.grid.len(), N);
         assert_eq!(self.grid[0].len(), N);
         let mut edges: Vec<String> = vec![
-            (0..N).map(|idx| self.grid[idx][0]).collect(), // Top
-            (0..N).map(|idx| self.grid[0][idx]).collect(), // Left
-            (0..N).map(|idx| self.grid[idx][N - 1]).collect(), // Bottom
-            (0..N).map(|idx| self.grid[N - 1][idx]).collect(), //Right
+            self.edge(Edge::Top),
+            self.edge(Edge::Left),
+            self.edge(Edge::Bottom),
+            self.edge(Edge::Right),
         ];
         edges.append(&mut edges.iter().map(|s| s.chars().rev().collect()).collect());
         edges

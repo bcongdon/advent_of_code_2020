@@ -58,8 +58,11 @@ fn eval(expr: &Vec<Token>, precedence: bool) -> u64 {
             Token::Digit(_) => out.push(*tok),
         }
     }
-    while !op_stack.is_empty() {
-        out.push(op_stack.pop().unwrap());
+    while let Some(tok) = op_stack.pop() {
+        match tok {
+            Token::OpPlus | Token::OpTimes => out.push(tok),
+            _ => {}
+        }
     }
 
     let mut stack: Vec<Token> = Vec::new();
@@ -76,7 +79,7 @@ fn eval(expr: &Vec<Token>, precedence: bool) -> u64 {
                 let b = stack.pop().unwrap().unwrap_digit();
                 stack.push(Token::Digit(a * b))
             }
-            _ => {}
+            _ => panic!("Invalid token: {:?}", tok),
         }
     }
     stack.pop().unwrap().unwrap_digit()
@@ -85,7 +88,7 @@ fn eval(expr: &Vec<Token>, precedence: bool) -> u64 {
 fn main() {
     let exprs = include_str!("18.txt")
         .lines()
-        .map(|l| parse_expr(l))
+        .map(parse_expr)
         .collect::<Vec<_>>();
     println!(
         "Part 1: {}",
