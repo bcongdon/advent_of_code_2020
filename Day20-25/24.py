@@ -1,12 +1,12 @@
 from collections import defaultdict
 
 DIRECTIONS = {
-    'e': (1, 0),
-    'w': (-1, 0),
-    'ne': (1, -1),
-    'nw': (0, -1),
-    'se': (0, 1),
-    'sw': (-1, 1)
+    "e": (1, 0),
+    "w": (-1, 0),
+    "ne": (1, -1),
+    "nw": (0, -1),
+    "se": (0, 1),
+    "sw": (-1, 1),
 }
 
 
@@ -15,7 +15,7 @@ def parse_directions(dir_str):
     out = []
     while idx < len(dir_str):
         if dir_str[idx] in "ns":
-            out.append(dir_str[idx:idx + 2])
+            out.append(dir_str[idx : idx + 2])
             idx += 2
         else:
             out.append(dir_str[idx])
@@ -37,7 +37,7 @@ def hex_neighbors(coord):
 
 
 if __name__ == "__main__":
-    with open('24.txt') as f:
+    with open("24.txt") as f:
         lines = [l.strip() for l in f.readlines()]
 
     coords = [find_relative_coord(l) for l in lines]
@@ -56,7 +56,7 @@ if __name__ == "__main__":
             if len(curr_neighbors & black) in (1, 2):
                 new.add(tile)
             neighbors |= curr_neighbors
-        for n in (neighbors - black):
+        for n in neighbors - black:
             if len(hex_neighbors(n) & black) == 2:
                 new.add(n)
         black = new

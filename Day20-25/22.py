@@ -8,8 +8,7 @@ def score(hand):
 def play_game(p1, p2):
     round_cache = set()
     while p1 and p2:
-        key = ','.join([str(c) for c in p1]) + '|' + \
-            ','.join([str(c) for c in p1])
+        key = ",".join([str(c) for c in p1]) + "|" + ",".join([str(c) for c in p1])
         if key in round_cache:
             return 1, p1, p2
         round_cache.add(key)
@@ -21,7 +20,7 @@ def play_game(p1, p2):
         else:
             round_winner = 1 if a > b else 2
 
-        assert(round_winner in (1, 2))
+        assert round_winner in (1, 2)
         if round_winner == 1:
             p1.extend([a, b])
         else:
@@ -40,10 +39,10 @@ def part1(p1, p2):
 
 
 if __name__ == "__main__":
-    with open('22.txt') as f:
-        players = f.read().strip().split('\n\n')
-    p1 = [int(i) for i in players[0].split('\n')[1:]]
-    p2 = [int(i) for i in players[1].split('\n')[1:]]
+    with open("22.txt") as f:
+        players = f.read().strip().split("\n\n")
+    p1 = [int(i) for i in players[0].split("\n")[1:]]
+    p2 = [int(i) for i in players[1].split("\n")[1:]]
 
     print(f"Part 1: {part1(p1, p2)}")
 

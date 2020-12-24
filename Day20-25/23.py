@@ -13,8 +13,7 @@ def play(orig, num_moves):
         while dest in picked_up:
             dest = minus_one_with_wrap(dest)
         dest_idx = rest.index(dest)
-        cups = rest[:dest_idx + 1] + picked_up + \
-            rest[dest_idx + 1:] + [current]
+        cups = rest[: dest_idx + 1] + picked_up + rest[dest_idx + 1 :] + [current]
     idx = cups.index(1)
     return cups[idx:] + cups[:idx]
 
@@ -52,12 +51,12 @@ def play_fast(orig, num_moves):
 
 
 if __name__ == "__main__":
-    inp = '792845136'
+    inp = "792845136"
     # inp = '389125467'
     orig = [int(i) for i in inp]
     N = len(orig)
 
-    print("Part 1: " + ''.join([str(c) for c in play(orig, 100)][1:]))
+    print("Part 1: " + "".join([str(c) for c in play(orig, 100)][1:]))
 
     p2_result = play_fast(orig + list(range(10, 1000001)), 10000000)
     print("Part 2: {}".format(p2_result[1] * p2_result[2]))

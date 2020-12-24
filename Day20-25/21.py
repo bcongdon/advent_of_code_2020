@@ -2,14 +2,14 @@ import re
 
 
 def parse_list(raw):
-    match = re.match(r'(.*) \(contains (.*)\)', raw)
-    ingredients = match.group(1).split(' ')
-    allergens = match.group(2).split(', ')
+    match = re.match(r"(.*) \(contains (.*)\)", raw)
+    ingredients = match.group(1).split(" ")
+    allergens = match.group(2).split(", ")
     return (ingredients, allergens)
 
 
 if __name__ == "__main__":
-    with open('21.txt') as f:
+    with open("21.txt") as f:
         ing_lists = [parse_list(l) for l in f.readlines()]
 
     foods = set()
@@ -41,5 +41,5 @@ if __name__ == "__main__":
             suspects.discard(f)
         allergens.pop(a)
         allergen_map[a] = f
-    canonical = ','.join(ing for _, ing in sorted(allergen_map.items()))
+    canonical = ",".join(ing for _, ing in sorted(allergen_map.items()))
     print(f"Part 2: {canonical}")
