@@ -75,4 +75,7 @@
 * Day 24:  :snowman:
     * [Python](Day20-25/24.py)
     * [Rust](Day20-25/day24_rs)
+* Day 25:  :sparkles:
+    * [Python](Day20-25/25.py)
+    * [Rust](Day20-25/day25_rs)
 
